@@ -2,6 +2,7 @@ package com.jsc.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jsc.domain.Board;
@@ -14,7 +15,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BoardServiceImpl implements BoardService {
-
+	
+	@Autowired
 	BoardMapper boardMapper;
 	
 	@Override
@@ -32,6 +34,12 @@ public class BoardServiceImpl implements BoardService {
 	public Board read(int bno) throws Exception {
 		// TODO Auto-generated method stub
 		return boardMapper.read(bno);
+	}
+	
+	@Override
+	public int readcntUpdate(int bno) throws Exception {
+		
+		return boardMapper.readcntUpdate(bno);
 	}
 
 	@Override

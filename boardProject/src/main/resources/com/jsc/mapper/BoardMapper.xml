@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="com.jsc.mapper.BoardMapper">
 	<insert id="create">
@@ -13,6 +13,12 @@
 		select * from board where bno=#{bno}
 		]]>
 	</select>
+	
+	<update id="readcntUpdate" parameterType="int">
+		<![CDATA[
+		UPDATE board SET readcount = readcount + 1 WHERE BNO = #{bno}
+		]]>
+	</update>
 	
 	<select id="count" resultType="int">
 		select count(*) from board

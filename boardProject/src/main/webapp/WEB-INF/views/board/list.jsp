@@ -9,28 +9,24 @@
 <title>Insert title here</title>
 </head>
 	<body><a href="/board/register">새 글쓰기</a>
-	<c:choose>
-		<c:when test="${count>0 }">
+		<a href="/User/Login">로그인</a>
 		<table>
 			<tr>
-				<td>bno</td>
-				<td>title</td>
-				<td>writer</td>
-				<td>regdate</td>
+				<td>번호</td>
+				<td>제목</td>
+				<td>작성자</td>
+				<td>조회수</td>
+				<td>등록날짜</td>
 			</tr>
 			<c:forEach items="${list }" var="board">
 			<tr>
 				<td>${board.bno }</td>
 				<td><a href="read?bno=${board.bno }">${board.title }</a></td>
 				<td>${board.writer }</td>
+				<td>${board.readcount }</td>
 				<td><fmt:formatDate value="${board.regdate }" pattern="yyyy. MM. dd"/></td>
 			</tr>
 			</c:forEach>
 		</table>
-		</c:when>
-		<c:otherwise>
-		<h2>데이터가 없습니다.</h2>
-		</c:otherwise>
-		</c:choose>
 	</body>
 </html>

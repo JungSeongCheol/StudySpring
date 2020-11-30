@@ -33,6 +33,8 @@ public class BoardController {
 
 	@GetMapping("/read")
 	public String read(@RequestParam("bno") int bno, Model model) throws Exception {
+		// 조회수증가
+		boardService.readcntUpdate(bno);
 		model.addAttribute("read", boardService.read(bno));
 		
 		return "/board/read";
