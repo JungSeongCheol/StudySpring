@@ -10,7 +10,7 @@
 	
 	<select id="login" resultType="User">
 		<![CDATA[
-		select * from board where id = #{id} AND pw = #{pw}
+			select * from user where id = #{id} AND pw = #{pw}
 		]]>
 	</select> 
 </mapper>

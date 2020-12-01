@@ -18,21 +18,14 @@ public class UserServiceImpl implements UserService {
 	UserMapper userMapper;
 
 	@Override
-	public void register(User user) throws Exception {
+	public boolean register(User user) throws Exception {
 		// TODO Auto-generated method stub
-		userMapper.register(user);
+		return userMapper.register(user);
 	}
 
 	@Override
-	public User login(String id, String pw) throws Exception {
+	public boolean login(User user) throws Exception {
 		// TODO Auto-generated method stub
-		return userMapper.login();
+		userMapper.login(user) 
 	}
-
-	@Override
-	public void logout() throws Exception {
-		// TODO Auto-generated method stub
-
-	}
-
 }

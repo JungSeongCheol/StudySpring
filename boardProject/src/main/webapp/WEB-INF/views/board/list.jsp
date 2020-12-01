@@ -9,7 +9,14 @@
 <title>Insert title here</title>
 </head>
 	<body><a href="/board/register">새 글쓰기</a>
-		<a href="/User/Login">로그인</a>
+		<c:choose>
+			<c:when test="${LoginCheck == 'success' }">
+				<span style="display: red">회원님 환영합니다.</span>
+			</c:when>
+			<c:otherwise>
+				<a href="/User/Login">로그인</a>
+			</c:otherwise>
+		</c:choose>
 		<table>
 			<tr>
 				<td>번호</td>

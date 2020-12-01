@@ -6,7 +6,6 @@ import com.jsc.domain.User;
 
 @Mapper
 public interface UserMapper {
-	public void register(User user) throws Exception;
-	public User login() throws Exception;
-	public void logout() throws Exception;
+	public boolean register(User user) throws Exception;
+	public User login(User user) throws Exception;
 }
