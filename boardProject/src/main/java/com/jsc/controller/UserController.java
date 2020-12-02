@@ -1,5 +1,7 @@
 package com.jsc.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,16 +26,15 @@ public class UserController {
 	}
 	
 	@PostMapping("/Login")
-	public ModelAndView Login(User user) throws Exception {
+	public ModelAndView Login(User user, HttpSession session) throws Exception {
 		boolean check = userService.login(user);
 		ModelAndView mav = new ModelAndView();
 		if(check == false) {
-			mav.setViewName("/User/Login");
 			mav.addObject("LoginCheck", "fail");
 		}
 		else {
-			mav.setViewName("/board/list");
-			mav.addObject("LoginCheck", "Success");
+			session.setAttribute("LoginCheck", "success");
+			mav.setViewName("redirect:/board/list");
 		}
 		
 		return mav;
@@ -57,5 +58,11 @@ public class UserController {
 			mav.addObject("msg", "success");
 		}
 		return mav;
+	}
+	
+	@GetMapping("/Logout")
+	public String Logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/board/list";
 	}
 }

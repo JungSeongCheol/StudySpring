@@ -20,8 +20,12 @@
 		<input type="button" value="취소" style="margin:5px" onclick="location.href='../board/list'"/>
 	</div>
 	<c:if test="${msg == 'success' }">
-		<span style="display: red">회원가입 성공.</span>
+		<span style="color: red">회원가입 성공.</span>
 	</c:if>
+	<c:if test="${LoginCheck == 'fail' }">
+		<span style="color: red">로그인 실패</span>
+	</c:if>
+	
 </form>
 
 </body>

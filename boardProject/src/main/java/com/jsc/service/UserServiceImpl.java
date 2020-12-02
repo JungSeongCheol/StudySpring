@@ -26,6 +26,9 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean login(User user) throws Exception {
 		// TODO Auto-generated method stub
-		userMapper.login(user) 
+		if(userMapper.login(user) == null) {
+			return false;
+		}
+		return true;
 	}
 }

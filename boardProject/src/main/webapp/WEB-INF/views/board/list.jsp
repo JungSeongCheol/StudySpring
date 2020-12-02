@@ -12,6 +12,7 @@
 		<c:choose>
 			<c:when test="${LoginCheck == 'success' }">
 				<span style="display: red">회원님 환영합니다.</span>
+				<a href="/User/Logout">로그아웃</a>
 			</c:when>
 			<c:otherwise>
 				<a href="/User/Login">로그인</a>

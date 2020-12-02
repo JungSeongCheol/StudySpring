@@ -22,8 +22,6 @@ public class BoardController {
 	
 	@GetMapping("/list")
 	public String list(Model model) throws Exception {
-		log.info("list func()");
-		
 		model.addAttribute("list", boardService.list());
 		
 //		model.addAttribute("count", boardService.cnt());

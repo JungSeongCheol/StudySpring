@@ -15,7 +15,7 @@
 	<input type="submit" value="등록" style="margin:5px"/>
 	<input type="button" value="취소" style="margin:5px" onclick="location.href='./Login'"/>
 	<c:if test="${msg == 'fail' }">
-		<span style="display: red">회원가입이 실패하였습니다.</span>
+		<span style="color: red">회원가입이 실패하였습니다.</span>
 	</c:if>
 </form>
 </body>
